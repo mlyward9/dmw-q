@@ -1,0 +1,245 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e8e8e8;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Header */
+.header {
+    background-color: #060a86;
+    color: white;
+    padding: 15px 30px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.header h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Main Container - Three Column Layout */
+.main-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 0;
+    background-color: white;
+    height: calc(100vh - 120px);
+    overflow: hidden;
+}
+
+/* Called Section (Left Side - 2 columns wide) */
+.called-section {
+    border-right: 2px solid #2E3192;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Section Titles */
+.section-title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 20px;
+    border-bottom: 2px solid #2E3192;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.called-title {
+    background-color: #d6e4ff;
+    color: #000;
+}
+
+.waiting-title {
+    background-color: #d6e4ff;
+    color: #000;
+}
+
+.counter-grid {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    flex: 1;
+    overflow: hidden;
+    align-content: start;
+}
+
+.counter-box {
+    background-color: #ffffff;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.counter-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+/* Waiting Section (Right Side) */
+.waiting-section {
+    display: flex;
+    flex-direction: column;
+    background-color: #fafafa;
+    height: 100%;
+    overflow: hidden;
+}
+
+.waiting-numbers-container {
+    padding: 30px;
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.all-waiting-box {
+    background-color: white;
+    border-radius: 0;
+    padding: 20px;
+    border: none;
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+/* Ticket Numbers */
+.ticket-numbers {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    width: 100%;
+}
+
+.ticket-number {
+    font-size: 52px;
+    font-weight: bold;
+    padding: 15px 40px;
+    border-radius: 8px;
+    min-width: 150px;
+    text-align: center;
+}
+
+.ticket-number.called {
+    color: #e74c3c;
+    background-color: #ffffff;
+    border: none;
+}
+
+.ticket-number.waiting {
+    color: #000;
+    background-color: #ffffff;
+    border: none;
+}
+
+/* No tickets message */
+.no-tickets {
+    color: #999;
+    font-size: 18px;
+    text-align: center;
+    padding: 60px 20px;
+    width: 100%;
+}
+
+/* Footer / Timestamp */
+.footer-info {
+    text-align: center;
+    padding: 10px;
+    color: #7f8c8d;
+    font-size: 14px;
+    height: 40px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Remove all scrollbars completely */
+.counter-grid,
+.all-waiting-box {
+    overflow: hidden !important;
+    scrollbar-width: none;
+}
+
+.counter-grid::-webkit-scrollbar,
+.all-waiting-box::-webkit-scrollbar {
+    display: none;
+}
+
+/* For very large screens (TV displays) */
+@media (min-width: 1920px) {
+    .header h1 {
+        font-size: 36px;
+    }
+    
+    .header {
+        height: 100px;
+        padding: 20px 40px;
+    }
+    
+    .section-title {
+        font-size: 28px;
+        height: 80px;
+    }
+    
+    .ticket-number {
+        font-size: 64px;
+        padding: 20px 50px;
+    }
+    
+    .counter-title {
+        font-size: 28px;
+    }
+    
+    .main-container {
+        height: calc(100vh - 140px);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1400px) {
+    .counter-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 900px) {
+    .main-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .called-section {
+        border-right: none;
+        border-bottom: 2px solid #2E3192;
+    }
+}

@@ -1,0 +1,528 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('../img/dmw-building.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 60px;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 0;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.header h1 {
+    color: #0066cc;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.header h1 i {
+    margin-right: 10px;
+}
+
+.header p {
+    color: #666;
+    font-size: 16px;
+}
+
+.header p strong {
+    color: #0066cc;
+}
+
+/* Filters */
+.filters {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.filters-left {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.filter-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-form label {
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.filter-form label i {
+    margin-right: 5px;
+    color: #0066cc;
+}
+
+.filter-form select,
+.filter-form input[type="date"] {
+    padding: 8px 12px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    background: white;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.filter-form select:focus,
+.filter-form input[type="date"]:focus {
+    outline: none;
+    border-color: #0066cc;
+}
+
+/* Buttons */
+.btn-logout,
+.btn-call,
+.btn-done,
+.btn-cancel,
+.btn-transfer {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 2px;
+}
+
+.btn-logout {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-logout:hover {
+    background: #c82333;
+}
+
+.btn-call {
+    background: #0066cc;
+    color: white;
+}
+
+.btn-call:hover {
+    background: #0052a3;
+}
+
+.btn-done {
+    background: #28a745;
+    color: white;
+}
+
+.btn-done:hover {
+    background: #218838;
+}
+
+.btn-cancel {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-cancel:hover {
+    background: #c82333;
+}
+
+.btn-transfer {
+    background: #ffc107;
+    color: #333;
+}
+
+.btn-transfer:hover {
+    background: #e0a800;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content h2 {
+    color: #0066cc;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.modal-content h2 i {
+    margin-right: 10px;
+}
+
+.modal-content label {
+    display: block;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 8px;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.modal-content select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    background: white;
+}
+
+.modal-content select:focus {
+    outline: none;
+    border-color: #0066cc;
+}
+
+.modal-content .btn-primary {
+    width: 100%;
+    padding: 14px;
+    background: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.modal-content .btn-primary:hover {
+    background: #0052a3;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 20px;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+}
+
+/* Ticket Layout */
+.ticket-layout {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.ticket-table-wrapper {
+    flex: 1;
+    min-width: 0;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    overflow-x: auto;
+}
+
+/* Table */
+.ticket-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.ticket-table thead tr {
+    background: #0066cc;
+    color: white;
+}
+
+.ticket-table th,
+.ticket-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.ticket-table th {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+.ticket-table tbody tr:hover {
+    background: rgba(0, 102, 204, 0.05);
+}
+
+.ticket-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.actions-cell {
+    white-space: nowrap;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.actions-cell form {
+    display: inline-block;
+    margin: 0;
+}
+
+/* Status Badges */
+.status {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-waiting {
+    background: #ffc107;
+    color: #333;
+}
+
+.status-called {
+    background: #0066cc;
+    color: white;
+}
+
+.status-done {
+    background: #28a745;
+    color: white;
+}
+
+.status-cancelled {
+    background: #dc3545;
+    color: white;
+}
+
+/* Statistics Panel */
+.stats-panel {
+    flex: 0 0 280px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    height: fit-content;
+}
+
+.stats-panel h3 {
+    color: #0066cc;
+    font-size: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.stats-panel h3 i {
+    margin-right: 8px;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.stat-item:last-child {
+    border-bottom: none;
+}
+
+.stat-count {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0066cc;
+}
+
+/* No Tickets Message */
+.no-tickets {
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+}
+
+.no-tickets i {
+    font-size: 64px;
+    color: #ddd;
+    margin-bottom: 20px;
+}
+
+.no-tickets p {
+    font-size: 16px;
+}
+
+/* Footer */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    color: #ffffff;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 14px;
+    z-index: 100;
+    border-top: 3px solid #0066cc;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .ticket-layout {
+        flex-direction: column;
+    }
+    
+    .stats-panel {
+        flex: 1;
+        width: 100%;
+    }
+    
+    .stat-item {
+        padding: 12px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .header {
+        padding: 20px;
+    }
+    
+    .header h1 {
+        font-size: 22px;
+    }
+    
+    .filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filters-left {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .filter-form {
+        width: 100%;
+    }
+    
+    .filter-form select,
+    .filter-form input[type="date"] {
+        flex: 1;
+    }
+    
+    .btn-logout {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .ticket-table {
+        font-size: 12px;
+    }
+    
+    .ticket-table th,
+    .ticket-table td {
+        padding: 8px;
+    }
+    
+    .btn-call,
+    .btn-done,
+    .btn-cancel {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 18px;
+    }
+    
+    .header p {
+        font-size: 14px;
+    }
+    
+    .ticket-table-wrapper {
+        padding: 10px;
+    }
+    
+    .stats-panel {
+        padding: 15px;
+    }
+}
