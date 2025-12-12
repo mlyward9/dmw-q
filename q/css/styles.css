@@ -23,6 +23,7 @@ body {
     height: 80px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .header h1 {
@@ -31,13 +32,24 @@ body {
     margin: 0;
 }
 
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-right {
+    font-size: 18px;
+    font-weight: 500;
+    color: #ecf0f1;
+}
+
 /* Main Container - Three Column Layout */
 .main-container {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 0;
     background-color: white;
-    height: calc(100vh - 120px);
+    height: calc(100vh - 80px);
     overflow: hidden;
 }
 
@@ -53,7 +65,7 @@ body {
 /* Section Titles */
 .section-title {
     text-align: center;
-    font-size: 22px;
+    font-size: 30px;
     font-weight: bold;
     padding: 20px;
     border-bottom: 2px solid #2E3192;
@@ -96,7 +108,7 @@ body {
 }
 
 .counter-title {
-    font-size: 24px;
+    font-size: 40px;
     font-weight: bold;
     color: #000;
     margin-bottom: 15px;
@@ -132,6 +144,21 @@ body {
     justify-content: center;
 }
 
+/* Two-column layout for waiting tickets */
+.waiting-numbers-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.waiting-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 /* Ticket Numbers */
 .ticket-numbers {
     display: flex;
@@ -142,7 +169,7 @@ body {
 }
 
 .ticket-number {
-    font-size: 52px;
+    font-size: 70px;
     font-weight: bold;
     padding: 15px 40px;
     border-radius: 8px;
@@ -158,7 +185,7 @@ body {
 
 .ticket-number.waiting {
     color: #000;
-    background-color: #ffffff;
+    
     border: none;
 }
 
@@ -169,19 +196,6 @@ body {
     text-align: center;
     padding: 60px 20px;
     width: 100%;
-}
-
-/* Footer / Timestamp */
-.footer-info {
-    text-align: center;
-    padding: 10px;
-    color: #7f8c8d;
-    font-size: 14px;
-    height: 40px;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 /* Remove all scrollbars completely */
@@ -222,7 +236,7 @@ body {
     }
     
     .main-container {
-        height: calc(100vh - 140px);
+        height: calc(100vh - 100px);
     }
 }
 
@@ -241,5 +255,166 @@ body {
     .called-section {
         border-right: none;
         border-bottom: 2px solid #2E3192;
+    }
+}
+
+/* Responsive: single column on smaller screens for waiting tickets */
+@media (max-width: 768px) {
+    .waiting-numbers-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.header-right {
+    font-size: 50px;
+    font-weight: 600;
+}
+.ticket-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+}
+
+.priority-label {
+    font-size: 10px;
+    font-weight: bold;
+    color: #e74c3c;
+    background-color: #fadbd8;
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-top: 4px;
+    letter-spacing: 0.5px;
+}
+/* Add this to your existing styles.css file */
+
+/* Called Grid Wrapper - Two Column Layout */
+.called-grid-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    overflow: hidden;
+    flex: 1;
+}
+
+/* Called List Container */
+.called-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    overflow-y: auto;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #ffffff;
+}
+
+/* Counter Row (List Item) */
+.counter-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    align-items: center;
+    padding: 20px 30px;
+    border-bottom: 2px solid #e0e0e0;
+    background-color: #ffffff;
+    min-height: 80px;
+}
+
+.counter-row:last-child {
+    border-bottom: none;
+}
+
+.counter-row:hover {
+    background-color: #f8f9fa;
+}
+
+/* Counter Label */
+.counter-label {
+    font-size: 32px;
+    font-weight: bold;
+    color: #000;
+    text-align: left;
+}
+
+/* Counter Number/Ticket Display */
+.counter-number {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.ticket-display {
+    font-size: 48px;
+    font-weight: bold;
+    color: #e74c3c;
+    background-color: #ffffff;
+    padding: 10px 30px;
+    border: 3px solid #e74c3c;
+    border-radius: 8px;
+    min-width: 100px;
+    text-align: center;
+}
+
+.priority-badge-small {
+    font-size: 12px;
+    font-weight: bold;
+    color: #e74c3c;
+    background-color: #fadbd8;
+    padding: 4px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+}
+
+/* Scrollbar for called list */
+.called-list-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.called-list-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.called-list-container::-webkit-scrollbar-thumb {
+    background: #060a86;
+    border-radius: 4px;
+}
+
+.called-list-container::-webkit-scrollbar-thumb:hover {
+    background: #2E3192;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1400px) {
+    .counter-row {
+        grid-template-columns: 180px 1fr;
+    }
+    
+    .counter-label {
+        font-size: 28px;
+    }
+    
+    .ticket-display {
+        font-size: 40px;
+        padding: 8px 24px;
+    }
+}
+
+@media (max-width: 900px) {
+    .called-grid-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    .counter-row {
+        grid-template-columns: 150px 1fr;
+        padding: 15px 20px;
+    }
+    
+    .counter-label {
+        font-size: 24px;
+    }
+    
+    .ticket-display {
+        font-size: 36px;
+        padding: 6px 20px;
     }
 }

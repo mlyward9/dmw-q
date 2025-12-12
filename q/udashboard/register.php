@@ -5,6 +5,7 @@ include("../config/conn.php"); // your DB connection file
 
 $success = "";
 $error = "";
+$code = "dmw4a";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = trim($_POST['username']);
@@ -65,6 +66,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         <label>Confirm Password:</label>
         <input type="password" name="confirm_password" required>
+
+        <label>Registration Code:</label>
+        <input type="password" name="code" id="reg-code" required>
+
+        <script>
+            (function(){
+            const correct = "<?php echo addslashes($code); ?>";
+            const form = document.currentScript.closest('form');
+            form.addEventListener('submit', function(e){
+                const val = document.getElementById('reg-code').value;
+                if (val !== correct) {
+                e.preventDefault();
+                alert('Invalid registration code. Registration cancelled.');
+                }
+            });
+            })();
+        </script>
 
         <button type="submit">Register</button>
     </form>

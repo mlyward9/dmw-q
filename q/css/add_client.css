@@ -216,3 +216,26 @@ p[style*="color:green"] {
         padding: 10px 20px;
     }
 }
+.priority-container {
+    margin: 15px 0;
+    padding: 15px;
+    background-color: #fff3cd;
+    border: 2px solid #ffc107;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.priority-container input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.priority-label {
+    cursor: pointer;
+    font-weight: 500;
+    color: #856404;
+    margin: 0;
+}
